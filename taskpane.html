@@ -2,17 +2,20 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>x</title>
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
 </head>
 
 <body>
     <button id='dumpButton'>Dump E-Mail</button>
-    <p id='emailPreview'></p>
+    <p id='emailPreview'>Trololol</p>
 </body>
 
 <script>
-    Office.onReady((info) => {
+    /*Office.onReady((info) => {
         if (info.host === Office.HostType.Outlook) {
             document.getElementById('dumpButton').onclick = dumpMessageContent;
         }
@@ -21,7 +24,7 @@
     function dumpMessageContent() {
         let emailText = Office.context.mailbox.item.body.getAsync(Office.CoercionType.HTML);
         document.getElementById('emailPreview').innerText = emailText;
-    }
+    }*/
 </script>
 
 </html>
