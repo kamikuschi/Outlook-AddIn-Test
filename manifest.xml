@@ -70,6 +70,8 @@
               </Group>
             </OfficeTab>
           </ExtensionPoint>
+
+
         </DesktopFormFactor>
       </Host>
     </Hosts>
@@ -80,7 +82,7 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/outlook-hello-world/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/outlook-hello-world/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://github.com/kamikuschi/Outlook-AddIn-Test/blob/cfe95f2e4769e5b4dd205d09ab57456654b901c7/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="CommandsGroup.Label" DefaultValue="Contoso Add-in"/>
