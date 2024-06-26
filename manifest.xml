@@ -82,7 +82,7 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/outlook-hello-world/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:5500/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://github.com/kamikuschi/Outlook-AddIn-Test/blob/d9e76bd7f417f4ca7c29660c0d35e350e9ff74e8/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="CommandsGroup.Label" DefaultValue="Contoso Add-in"/>
