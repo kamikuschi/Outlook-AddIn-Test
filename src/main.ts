@@ -6,35 +6,32 @@ Office.onReady((info) => {
 
 
 async function showEmailPreview() {
-    document.getElementById('emailPreview').innerText = await getMessageContent()
+    document.getElementById('emailPreview').innerText = await getMessageText()
 }
 
 
-async function getMessageContent(): Promise<string> {
+async function getMessageText(): Promise<string> {
     const item = Office.context.mailbox.item;
-    if(item.itemType === Office.MailboxEnums.ItemType.Message) {
+    if (item.itemType === Office.MailboxEnums.ItemType.Message) {
         try {
-            const emailBody = await getBody(item, Office.CoercionType.Text);
+            const emailBody = await new Promise<string>((resolve, reject) => {
+                item.body.getAsync(Office.CoercionType.Html, (result) => {
+                    if (result.status === Office.AsyncResultStatus.Succeeded) {
+                        resolve(result.value as string);
+                    } else {
+                        reject(result.error);
+                    }
+                });
+            });
             return emailBody;
         } catch (error) {
             console.log("Fehler beim Abrufen des E-Mail-Bodys:", error);
-            return "";
+            return ""; // or handle the error appropriately
         }
     } else {
         console.log("Das aktuelle Element ist keine Nachricht.");
-        return "";
+        return ""; // or handle the case where it's not a message
     }
 }
 
 
-function getBody(item: Office.MessageRead | Office.MessageCompose, coercionType: Office.CoercionType): Promise<string> {
-    return new Promise((resolve, reject) => {
-        item.body.getAsync(coercionType, (result) => {
-            if (result.status === Office.AsyncResultStatus.Succeeded) {
-                resolve(result.value);
-            } else {
-                reject(result.error);
-            }
-        });
-    });
-}

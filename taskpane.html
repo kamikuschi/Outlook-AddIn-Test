@@ -1,18 +1,57 @@
 <!DOCTYPE html>
-<html>
+<html lang="de">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>x</title>
     <!-- Office JavaScript API -->
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="text/javascript" src="./office.d.ts"></script>
     <script type="text/javascript" src="built/main.js"></script>
 </head>
 
 <body>
-    <button id='dumpButton'>Dump E-Mail</button>
-    <p id='emailPreview'>Trololol</p>
+    <div id="header">
+        <img src="./assets/icon-full.png" id="logoImg">
+    </div>
+    <button id='dumpButton'>E-Mailtext einlesen</button>
+    <p id='emailPreview'></p>
 </body>
+
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 2%;
+        display: grid;
+    }
+
+    #header {
+        margin-bottom: 2%;
+    }
+
+    #dumpButton {
+        border: transparent;
+        padding: 1px 12px 1px 9px;
+        height: 32px;
+        width: 150px;
+        border-radius: 4px;
+        font-size: 14px;
+        position: relative;
+        margin: 4px 0 0 5%;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: #0F6CBD;
+        color: #ffffff;
+    }
+
+    #dumpButton:hover {
+        background-color: #0C3B5E;
+    }
+
+    #emailPreview {
+        width: 90%;
+        text-align: justify;
+        margin: 2% 5% 0 5%;
+    }
+</style>
 
 </html>
