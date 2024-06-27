@@ -26,7 +26,7 @@
   <FormSettings>
     <Form xsi:type="ItemRead">
       <DesktopSettings>
-        <SourceLocation DefaultValue="https://msserver.dyndns.org/addin/taskpane.html"/>
+        <SourceLocation DefaultValue="https://msserver.dyndns.org/Outlook-AddIn-Test/taskpane.html"/>
         <RequestedHeight>250</RequestedHeight>
       </DesktopSettings>
     </Form>
@@ -80,7 +80,7 @@
         <bt:Image id="Icon.80x80" DefaultValue="https://officedev.github.io/Office-Add-in-samples/Samples/hello-world/outlook-hello-world/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://msserver.dyndns.org/addin/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://msserver.dyndns.org/Outlook-AddIn-Test/taskpane.html"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="CommandsGroup.Label" DefaultValue="Contoso Add-in"/>
