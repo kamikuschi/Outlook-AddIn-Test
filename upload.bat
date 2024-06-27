@@ -1,0 +1,1 @@
+xcopy .\manifest.xml W:\addin -Y
