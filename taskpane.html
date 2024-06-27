@@ -7,24 +7,12 @@
     <title>x</title>
     <!-- Office JavaScript API -->
     <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="module" src="src/main.js"></script>
 </head>
 
 <body>
     <button id='dumpButton'>Dump E-Mail</button>
     <p id='emailPreview'>Trololol</p>
 </body>
-
-<script>
-    Office.onReady((info) => {
-        if (info.host === Office.HostType.Outlook) {
-            document.getElementById('dumpButton').onclick = dumpMessageContent;
-        }
-    });
-
-    function dumpMessageContent() {
-        let emailText = Office.context.mailbox.item.body.getAsync(Office.CoercionType.HTML);
-        document.getElementById('emailPreview').innerText = emailText;
-    }
-</script>
 
 </html>
