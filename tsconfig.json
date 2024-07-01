@@ -4,6 +4,8 @@
       "target": "ES6",
       "module": "ES2015",
       "rootDir": "./src",
-      "sourceMap": true
+      "sourceMap": true,
+      "moduleResolution": "node",
+      "strict": true
     }
 }

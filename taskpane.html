@@ -6,16 +6,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>x</title>
     <!-- Office JavaScript API -->
-    <script type="text/javascript" src="./office.d.ts"></script>
-    <script type="text/javascript" src="built/main.js"></script>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1/hosted/office.js"></script>
+    <script type="module" src="dist/main.js"></script>
 </head>
 
 <body>
     <div id="header">
         <img src="./assets/icon-full.png" id="logoImg">
     </div>
-    <button id='dumpButton'>E-Mailtext einlesen</button>
-    <p id='emailPreview'></p>
+    <button id='sendToHistoryButton' class="btns">Historie erstellen</button>
+    <button id='getAttachmentsButton' class="btns">Anhänge erfassen</button>
+    <iframe id="emailPreview" frameborder="0"></iframe>
 </body>
 
 <style>
@@ -29,7 +30,12 @@
         margin-bottom: 2%;
     }
 
-    #dumpButton {
+    #logoImg {
+        height: auto;
+        width: 75%;
+    }
+
+    .btns {
         border: transparent;
         padding: 1px 12px 1px 9px;
         height: 32px;
@@ -43,14 +49,8 @@
         color: #ffffff;
     }
 
-    #dumpButton:hover {
+    .btns:hover {
         background-color: #0C3B5E;
-    }
-
-    #emailPreview {
-        width: 90%;
-        text-align: justify;
-        margin: 2% 5% 0 5%;
     }
 </style>
 
