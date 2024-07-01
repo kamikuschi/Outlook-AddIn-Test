@@ -13,22 +13,16 @@ Office.onReady(info => { main(info); });
 function main(info) {
     let outlookInterface = new OutlookInterface;
     let errorHandler = new ErrorHandler;
-    let dumpButton;
+    let sendToHistoryButton;
     if (info.host === Office.HostType.Outlook) {
-        dumpButton = document.getElementById('dumpButton');
-        if (!dumpButton) {
-            errorHandler.setError("Das Skript kann nicht auf den Knopf zugreifen");
+        sendToHistoryButton = document.getElementById('sendToHistoryButton');
+        if (!sendToHistoryButton) {
+            errorHandler.setError("Fehler im HTML-Dokument", new Error("Element sendToHistoryButton isn't defined."));
             return;
         }
-        dumpButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            //setIframePreview('emailPreview', outlookInterface.getMessageFile());
-            //console.log(outlookInterface.getMessageFile());
-            download("message.eml", yield outlookInterface.getMessageFile());
-        }));
-        dumpButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
-            //setIframePreview('emailPreview', outlookInterface.getMessageFile());
-            //console.log(outlookInterface.getMessageFile());
-            download("message.eml", yield outlookInterface.getMessageFile());
+        sendToHistoryButton.addEventListener('click', () => __awaiter(this, void 0, void 0, function* () {
+            console.log(outlookInterface.getMessageProperties());
+            //download("message.eml", await outlookInterface.getMessageFile())
         }));
     }
 }
@@ -41,25 +35,23 @@ function download(filename, data) {
     element.click();
     document.body.removeChild(element);
 }
-function setIframePreview(iframeId, contentPromise) {
-    return __awaiter(this, void 0, void 0, function* () {
-        const iframe = document.getElementById(iframeId);
-        if (iframe && iframe.contentWindow && iframe.contentDocument) {
-            try {
-                // Warte, bis die Promise aufgelöst wird und erhalte den Inhalt
-                const content = yield contentPromise;
-                // Setze den Inhalt des Iframes
-                iframe.contentDocument.open();
-                iframe.contentDocument.write(content);
-                iframe.contentDocument.close();
-            }
-            catch (error) {
-                console.error('Fehler beim Laden des Inhalts:', error);
-            }
+/*async function setIframePreview(iframeId: string, contentPromise: Promise<string>) {
+    const iframe = document.getElementById(iframeId) as HTMLIFrameElement;
+
+    if (iframe && iframe.contentWindow && iframe.contentDocument) {
+        try {
+            // Warte, bis die Promise aufgelöst wird und erhalte den Inhalt
+            const content = await contentPromise;
+
+            // Setze den Inhalt des Iframes
+            iframe.contentDocument.open();
+            iframe.contentDocument.write(content);
+            iframe.contentDocument.close();
+        } catch (error) {
+            console.error('Fehler beim Laden des Inhalts:', error);
         }
-        else {
-            console.error(`Iframe mit ID ${iframeId} nicht gefunden oder Zugriff nicht möglich.`);
-        }
-    });
-}
+    } else {
+        console.error(`Iframe mit ID ${iframeId} nicht gefunden oder Zugriff nicht möglich.`);
+    }
+}*/
 //# sourceMappingURL=main.js.map

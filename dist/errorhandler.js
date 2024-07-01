@@ -11,9 +11,7 @@ export class ErrorHandler {
         else {
             this._exceptions.push(new Error("None"));
         }
-        for (let i = 0; i < this._messages.length; i++) {
-            console.log(this._messages[i] + ': ' + this._exceptions[i].message);
-        }
+        console.log(errorMessage + ": " + this._exceptions[this._exceptions.length - 1].message);
     }
     /*public logErrors() {
         for(let i = 0; i < this._messages.length; i++) {

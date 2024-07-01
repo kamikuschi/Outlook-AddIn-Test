@@ -6,26 +6,19 @@ Office.onReady(info => {main(info)});
 function main(info: { host: Office.HostType; platform: Office.PlatformType; }) {
     let outlookInterface: OutlookInterface = new OutlookInterface;
     let errorHandler: ErrorHandler = new ErrorHandler;
-    let dumpButton: HTMLElement | null;
-    
+    let sendToHistoryButton: HTMLElement | null;
+
     if (info.host === Office.HostType.Outlook) {
-        dumpButton = document.getElementById('dumpButton');
-        if(!dumpButton) {
-            errorHandler.setError("Das Skript kann nicht auf den Knopf zugreifen");
+        sendToHistoryButton = document.getElementById('sendToHistoryButton');
+
+        if(!sendToHistoryButton) {
+            errorHandler.setError("Fehler im HTML-Dokument", new Error("Element sendToHistoryButton isn't defined."));
             return;
         }
-        dumpButton.addEventListener('click', async () => {
-            //setIframePreview('emailPreview', outlookInterface.getMessageFile());
-            //console.log(outlookInterface.getMessageFile());
-            
-            download("message.eml", await outlookInterface.getMessageFile())
-        });
 
-        dumpButton.addEventListener('click', async () => {
-            //setIframePreview('emailPreview', outlookInterface.getMessageFile());
-            //console.log(outlookInterface.getMessageFile());
-            
-            download("message.eml", await outlookInterface.getMessageFile())
+        sendToHistoryButton.addEventListener('click', async () => {
+            console.log(outlookInterface.getMessageProperties());
+            //download("message.eml", await outlookInterface.getMessageFile())
         });
     }
 }
@@ -35,17 +28,17 @@ function download(filename: string, data: string) {
     let element = document.createElement('a');
     element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(data));
     element.setAttribute('download', filename);
-  
+
     element.style.display = 'none';
     document.body.appendChild(element);
-  
+
     element.click();
-  
+
     document.body.removeChild(element);
 }
 
 
-async function setIframePreview(iframeId: string, contentPromise: Promise<string>) {
+/*async function setIframePreview(iframeId: string, contentPromise: Promise<string>) {
     const iframe = document.getElementById(iframeId) as HTMLIFrameElement;
 
     if (iframe && iframe.contentWindow && iframe.contentDocument) {
@@ -63,5 +56,4 @@ async function setIframePreview(iframeId: string, contentPromise: Promise<string
     } else {
         console.error(`Iframe mit ID ${iframeId} nicht gefunden oder Zugriff nicht möglich.`);
     }
-}
-
+}*/
